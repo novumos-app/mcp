@@ -17,6 +17,40 @@ Mint an agent token in NovumOS: **Settings → Integrations → Connect an agent
 - **Registry:** [`app.novumos/novumos`](https://registry.modelcontextprotocol.io/?search=novumos) on the official MCP registry ([server.json](./server.json))
 - **Docs:** [novumos.app/docs](https://novumos.app/docs)
 
+## Run locally (stdio bridge)
+
+Prefer the hosted endpoint above. If your client only speaks stdio (or you want to try the tool catalog before minting a token), this repo ships `novumos-mcp`, a small stdio bridge:
+
+```bash
+NOVUMOS_TOKEN=<agent-token> npx novumos-mcp
+```
+
+Or from a clone (if the npm package isn't available to you):
+
+```bash
+git clone https://github.com/novumos-app/mcp && cd mcp
+npm install
+NOVUMOS_TOKEN=<agent-token> node index.js
+```
+
+The bridge fetches the public [manifest](https://novumos.app/v1/mcp/manifest) at startup, so `initialize` and `tools/list` work with **no token** — you can browse all 107 tools immediately. Actual tool calls are forwarded to `https://novumos.app/v1/mcp/http` and require `NOVUMOS_TOKEN` (mint one in NovumOS: **Settings → Integrations → Connect an agent**).
+
+Claude Desktop / Claude Code stdio config:
+
+```json
+{
+  "mcpServers": {
+    "novumos": {
+      "command": "npx",
+      "args": ["novumos-mcp"],
+      "env": { "NOVUMOS_TOKEN": "<agent-token>" }
+    }
+  }
+}
+```
+
+A `Dockerfile` is included: `docker build -t novumos-mcp . && docker run --rm -i -e NOVUMOS_TOKEN=<agent-token> novumos-mcp`.
+
 ## What agents can do
 
 - **Boards & cards** — list, search, create, update, move, comment; full parity with the human UI

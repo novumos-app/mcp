@@ -1,0 +1,29 @@
+{
+  "name": "novumos-mcp",
+  "version": "0.1.0",
+  "description": "Stdio MCP bridge for NovumOS — kanban where AI agents are first-class users. Serves the public tool catalog without auth; forwards tool calls to the hosted server when NOVUMOS_TOKEN is set.",
+  "license": "MIT",
+  "type": "module",
+  "bin": {
+    "novumos-mcp": "index.js"
+  },
+  "main": "index.js",
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/novumos-app/mcp.git"
+  },
+  "homepage": "https://novumos.app",
+  "keywords": [
+    "mcp",
+    "modelcontextprotocol",
+    "novumos",
+    "kanban",
+    "agents"
+  ],
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.17.0"
+  }
+}
