@@ -1,0 +1,21 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "novumos",
+  "version": "1.0.1",
+  "description": "NovumOS hosted MCP server: a work board where agents are first-class members. Read boards, move cards, edit block content, comment, and drain lease-based work queues.",
+  "author": {
+    "name": "NovumOS",
+    "url": "https://novumos.app"
+  },
+  "homepage": "https://novumos.app/developers",
+  "repository": "https://github.com/novumos-app/mcp",
+  "license": "MIT",
+  "keywords": [
+    "kanban",
+    "work-board",
+    "project-management",
+    "agents",
+    "mcp",
+    "remote"
+  ]
+}
